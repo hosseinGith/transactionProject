@@ -147,7 +147,6 @@ const forms = document.querySelectorAll("form");
 function searchInTransaction(search) {
   let trs = document.querySelectorAll("#transactionCont tr");
   trs.forEach((item) => {
-    console.log(item.querySelector(".idTransaction"));
     if (
       !String(item.querySelector(".idTransaction").textContent).includes(
         search
@@ -164,7 +163,6 @@ function filter() {
   let dateFrom = document.querySelector("#dateFrom").value;
   let dateTo = document.querySelector("#dateTo").value;
   if (!dateFrom || !dateTo) {
-    console.log(2134);
     trs.forEach((item) => {
       item.classList.remove("hidden");
     });
