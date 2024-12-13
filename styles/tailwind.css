@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @font-face {
+    font-family: iransans;
+    src: url("/assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
+  }
+  body {
+    font-family: iransans;
+  }
+  .button {
+    @apply bg-mainColorBg text-mainColorText rounded py-2 px-4;
+  }
+  input {
+    @apply outline-none text-[black];
+  }
+  .tableStyle thead tr {
+    @apply bg-tableColor py-4;
+  }
+  .tableStyle tbody tr:nth-child(even) {
+    @apply bg-secendColor;
+  }
+  .tableStyle thead tr th {
+    @apply text-start px-2 py-3;
+  }
+  .tableStyle tbody tr td {
+    @apply text-start px-2;
+  }
+  .tableStyle tbody tr ul {
+    @apply flex  flex-wrap gap-2;
+  }
+  .tableStyle tbody tr ul li {
+    @apply w-[35px] py-1 flex justify-center bg-secendColor border border-borderColor;
+  }
+  .success {
+    @apply bg-success;
+  }
+  .reject {
+    @apply bg-reject;
+  }
+}

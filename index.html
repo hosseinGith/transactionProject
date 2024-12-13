@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preload" href="/styles/main.css"  as="style" />
+    <link rel="stylesheet" href="/styles/jalalidatepicker.min.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script src="/scripts/jalalidatepicker.min.js"></script>
+    <script src="/scripts/main.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-bodyColor text-fontColor">
+    <form class="max-w-[1000px] min-w-min mx-auto sm:p-4 p-2 text-[12px]">
+      <div
+        class="w-full border border-borderColor shadow-sm rounded-lg bg-[#fff]"
+      >
+        <div class="px-4 pt-4 pb-2 border-b border-borderColor">
+          <h1 class="text-[16px]">فیلتر ها</h1>
+        </div>
+        <div class="flex sm:flex-row flex-col text-nowrap items-end gap-4 p-4">
+          <div class="w-full flex flex-col">
+            <label for="dateFrom" class="text-[black]">از تاریخ</label>
+            <div
+              class="rounded border border-borderColor w-full flex items-center"
+            >
+              <div>
+                <svg
+                  width="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6 mr-2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                  />
+                </svg>
+              </div>
+              <input
+                id="dateFrom"
+                data-jdp="true"
+                dir="ltr"
+                class="w-full px-4 py-2"
+                type="text"
+                name="dateFrom"
+                placeholder="yyyy/mm/dd"
+              />
+            </div>
+          </div>
+          <div class="w-full flex flex-col">
+            <label for="dateTo" class="text-[black]">تا تاریخ</label>
+            <div
+              class="rounded border border-borderColor w-full flex items-center"
+            >
+              <div>
+                <svg
+                  width="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6 mr-2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                  />
+                </svg>
+              </div>
+              <input
+                id="dateTo"
+                data-jdp="true"
+                dir="ltr"
+                class="w-full px-4 py-2"
+                type="text"
+                name="dateTo"
+                placeholder="yyyy/mm/dd"
+              />
+            </div>
+          </div>
+          <div>
+            <button class="button">جست و جو</button>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 space-y-2">
+        <div>
+          <button type="button" id="selectAllTransaction" class="button">انتخاب همه</button>
+          <button type="button" id="downloadTransaction" class="button">دانلود</button>
+        </div>
+        <div class="bg-[#fff] rounded-lg border border-borderColor">
+          <div class="py-2 px-4 flex justify-between">
+            <h1 class="text-[16px]">لیست پرداختی ها</h1>
+            <div
+              id="searchForm"
+              class="flex border-borderColor border rounded overflow-hidden"
+            >
+              <input
+                class="p-2"
+                type="search"
+                name="search"
+                placeholder="جستجو"
+                id="searchValue"
+              />
+              <button
+                type="submit"
+                class="bg-secendColor px-2 flex items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="3"
+                  stroke="currentColor"
+                  width="16"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <table class="w-full tableStyle text-nowrap">
+            <thead>
+              <tr style="text-wrap: wrap">
+                <th>دانلود</th>
+                <th>آیدی</th>
+                <th>نام و نام خانوادگی حامی</th>
+                <th>نام و نام خانوادگی ایتام</th>
+                <th>مبلغ کمک</th>
+                <th>تاریخ ایجاد</th>
+                <th>وضعیت پرداخت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody id="transactionCont"></tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
