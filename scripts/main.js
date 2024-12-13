@@ -147,10 +147,11 @@ setTransaction();
 
 document
   .querySelector("#selectAllTransaction")
-  .addEventListener("click", () => {
+  .addEventListener("click",function ()  {
     document.querySelectorAll("input[name='dwonload']").forEach((item) => {
-      item.checked = !item.checked;
+      item.checked = this.textContent === "لغو همه" ? false : true;
     });
+    this.textContent = this.textContent === "لغو همه" ? "انتخاب همه":"لغو همه";
   });
 
 jalaliDatepicker.startWatch({
