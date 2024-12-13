@@ -147,14 +147,44 @@ const forms = document.querySelectorAll("form");
 function searchInTransaction(search) {
   let trs = document.querySelectorAll("#transactionCont tr");
   trs.forEach((item) => {
-    console.log(item.querySelector(".idTransaction"))
+    console.log(item.querySelector(".idTransaction"));
     if (
-      !String(item.querySelector(".idTransaction").textContent).includes(search) &&
+      !String(item.querySelector(".idTransaction").textContent).includes(
+        search
+      ) &&
       !String(item.querySelector(".hamiName").textContent).includes(search) &&
       !String(item.querySelector(".atamName").textContent).includes(search)
     )
       item.classList.add("hidden");
     else item.classList.remove("hidden");
+  });
+}
+function filter() {
+  let trs = document.querySelectorAll("#transactionCont tr");
+  let dateFrom = document.querySelector("#dateFrom").value;
+  let dateTo = document.querySelector("#dateTo").value;
+  if (!dateFrom || !dateTo) {
+    console.log(2134);
+    trs.forEach((item) => {
+      item.classList.remove("hidden");
+    });
+    return;
+  }
+  trs.forEach((item) => {
+    console.log(
+      new Date(item.querySelector(".dateTransaction").textContent).getTime(),
+      dateFrom,
+      new Date(item.querySelector(".dateTransaction").textContent).getTime(),
+      dateTo
+    );
+    if (
+      new Date(item.querySelector(".dateTransaction").textContent).getTime() >=
+        new Date(dateFrom).getTime() &&
+      new Date(item.querySelector(".dateTransaction").textContent).getTime() <=
+        new Date(dateTo).getTime()
+    )
+      item.classList.remove("hidden");
+    else item.classList.add("hidden");
   });
 }
 document
@@ -167,20 +197,12 @@ document
       this.textContent === "لغو همه" ? "انتخاب همه" : "لغو همه";
   });
 
-jalaliDatepicker.startWatch({
-  dayRendering: function (dayOptions, addUs_birthday) {
-    return {
-      isHollyDay: dayOptions.month == 1 && dayOptions.day <= 4,
-    };
-  },
-});
-
 document.querySelector("#searchForm").addEventListener("click", () => {});
 
 document.querySelector("#searchValue").addEventListener("keyup", function () {
   searchInTransaction(this.value);
 });
-
+document.querySelector("#filterTransaction").addEventListener("click", filter);
 // document.querySelector("#downloadTransaction").addEventListener("click", () => {
 //   document.querySelector("#downloadTransaction");
 // });
