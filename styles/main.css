@@ -730,7 +730,7 @@ video {
 @font-face {
   font-family: iransans;
 
-  src: url("/assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
+  src: url("../assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
 }
 
 body {
@@ -799,6 +799,16 @@ input {
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.success {
+  --tw-text-opacity: 1;
+  color: rgb(0 128 0 / var(--tw-text-opacity));
+}
+
+.reject {
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {

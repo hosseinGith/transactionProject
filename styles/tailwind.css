@@ -35,9 +35,9 @@
     @apply w-[35px] py-1 flex justify-center bg-secendColor border border-borderColor;
   }
   .success {
-    @apply bg-success;
+    @apply text-success;
   }
   .reject {
-    @apply bg-reject;
+    @apply text-reject;
   }
 }
