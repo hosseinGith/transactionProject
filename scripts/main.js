@@ -171,12 +171,7 @@ function filter() {
     return;
   }
   trs.forEach((item) => {
-    console.log(
-      new Date(item.querySelector(".dateTransaction").textContent).getTime(),
-      dateFrom,
-      new Date(item.querySelector(".dateTransaction").textContent).getTime(),
-      dateTo
-    );
+   
     if (
       new Date(item.querySelector(".dateTransaction").textContent).getTime() >=
         new Date(dateFrom).getTime() &&
