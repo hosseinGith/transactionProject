@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./**/*.html"],
-  safelist: ["flex ", "flex-col", "py-4"],
+  safelist: ["flex ", "flex-col", "py-4","hidden"],
   theme: {
     colors: {
       success: "green",

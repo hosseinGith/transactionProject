@@ -144,14 +144,27 @@ const forms = document.querySelectorAll("form");
 // }
 
 // setTransaction();
-
+function searchInTransaction(search) {
+  let trs = document.querySelectorAll("#transactionCont tr");
+  trs.forEach((item) => {
+    console.log(item.querySelector(".idTransaction"))
+    if (
+      !String(item.querySelector(".idTransaction").textContent).includes(search) &&
+      !String(item.querySelector(".hamiName").textContent).includes(search) &&
+      !String(item.querySelector(".atamName").textContent).includes(search)
+    )
+      item.classList.add("hidden");
+    else item.classList.remove("hidden");
+  });
+}
 document
   .querySelector("#selectAllTransaction")
-  .addEventListener("click",function ()  {
+  .addEventListener("click", function () {
     document.querySelectorAll("input[name='dwonload']").forEach((item) => {
       item.checked = this.textContent === "لغو همه" ? false : true;
     });
-    this.textContent = this.textContent === "لغو همه" ? "انتخاب همه":"لغو همه";
+    this.textContent =
+      this.textContent === "لغو همه" ? "انتخاب همه" : "لغو همه";
   });
 
 jalaliDatepicker.startWatch({
@@ -160,6 +173,12 @@ jalaliDatepicker.startWatch({
       isHollyDay: dayOptions.month == 1 && dayOptions.day <= 4,
     };
   },
+});
+
+document.querySelector("#searchForm").addEventListener("click", () => {});
+
+document.querySelector("#searchValue").addEventListener("keyup", function () {
+  searchInTransaction(this.value);
 });
 
 // document.querySelector("#downloadTransaction").addEventListener("click", () => {
