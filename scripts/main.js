@@ -138,7 +138,7 @@ function cteateTransaction(datas) {
 }
 async function setTransaction() {
   try {
-    let res = await (await fetch("/scripts/datas.json")).json();
+    let res = await (await fetch("./datas.json")).json();
     cteateTransaction(res);
   } catch (e) {}
 }

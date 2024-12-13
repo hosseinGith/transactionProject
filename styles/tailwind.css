@@ -5,7 +5,7 @@
 @layer utilities {
   @font-face {
     font-family: iransans;
-    src: url("/assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
+    src: url("../assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
   }
   body {
     font-family: iransans;
