@@ -8,6 +8,7 @@ const forms = document.querySelectorAll("form");
 //         <tr>
 //           <td>
 //             <input data-id="${data.id}" type="checkbox" name="dwonload" />
+//<a href="assets/imgTest/Screenshot (136).png" class="transactionImageLink hidden"></a>
 //           </td>
 //           <td>
 //             <span>${data.id}</span>
@@ -170,10 +171,12 @@ function filter() {
   }
   trs.forEach((item) => {
     if (
-      new Date(item.querySelector(".dateTransaction").textContent.trim()).getTime() >=
-        new Date(dateFrom).getTime() &&
-      new Date(item.querySelector(".dateTransaction").textContent.trim()).getTime() <=
-        new Date(dateTo).getTime()
+      new Date(
+        item.querySelector(".dateTransaction").textContent.trim()
+      ).getTime() >= new Date(dateFrom).getTime() &&
+      new Date(
+        item.querySelector(".dateTransaction").textContent.trim()
+      ).getTime() <= new Date(dateTo).getTime()
     )
       item.classList.remove("hidden");
     else item.classList.add("hidden");
@@ -197,12 +200,16 @@ document.querySelector("#searchValue").addEventListener("input", function () {
 
 document.querySelector("#filterTransaction").addEventListener("click", filter);
 
-
-// document.querySelector("#downloadTransaction").addEventListener("click", () => {
-//   document.querySelector("#downloadTransaction");
-// });
-// forms.forEach((item) => (item.onsubmit = (e) => e.preventDefault()));
-
+document.querySelector("#downloadTransaction").addEventListener("click", () => {
+  document
+    .querySelectorAll("input[type='checkbox'] ")
+    .forEach((item) => {
+      if(item.checked){
+        item.parentElement.querySelector('.transactionImageLink').click()
+      }
+      console.log(item)
+    });
+});
 
 jalaliDatepicker.startWatch({
   dayRendering: function (dayOptions, addUs_birthday) {
