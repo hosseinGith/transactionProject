@@ -194,22 +194,20 @@ document.querySelector("#searchForm").addEventListener("click", () => {});
 document.querySelector("#searchValue").addEventListener("input", function () {
   searchInTransaction(this.value);
 });
+
 document.querySelector("#filterTransaction").addEventListener("click", filter);
+
+
 // document.querySelector("#downloadTransaction").addEventListener("click", () => {
 //   document.querySelector("#downloadTransaction");
 // });
 // forms.forEach((item) => (item.onsubmit = (e) => e.preventDefault()));
 
-document.querySelectorAll("input[data-dateInput]").forEach((item) => {});
-datepicker("input[name='dateFrom']", {
-  formatter: (input, date, instance) => {
-    const value = date.toLocaleDateString();
-    input.value = value;
-  },
-});
-datepicker("input[name='dateTo']", {
-  formatter: (input, date, instance) => {
-    const value = date.toLocaleDateString();
-    input.value = value;
+
+jalaliDatepicker.startWatch({
+  dayRendering: function (dayOptions, addUs_birthday) {
+    return {
+      isHollyDay: dayOptions.month == 1 && dayOptions.day <= 4,
+    };
   },
 });
