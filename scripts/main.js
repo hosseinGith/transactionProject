@@ -169,7 +169,6 @@ function filter() {
     return;
   }
   trs.forEach((item) => {
-   
     if (
       new Date(item.querySelector(".dateTransaction").textContent).getTime() >=
         new Date(dateFrom).getTime() &&
@@ -192,7 +191,7 @@ document
 
 document.querySelector("#searchForm").addEventListener("click", () => {});
 
-document.querySelector("#searchValue").addEventListener("keyup", function () {
+document.querySelector("#searchValue").addEventListener("input", function () {
   searchInTransaction(this.value);
 });
 document.querySelector("#filterTransaction").addEventListener("click", filter);
@@ -200,3 +199,17 @@ document.querySelector("#filterTransaction").addEventListener("click", filter);
 //   document.querySelector("#downloadTransaction");
 // });
 // forms.forEach((item) => (item.onsubmit = (e) => e.preventDefault()));
+
+document.querySelectorAll("input[data-dateInput]").forEach((item) => {});
+datepicker("input[name='dateFrom']", {
+  formatter: (input, date, instance) => {
+    const value = date.toLocaleDateString();
+    input.value = value;
+  },
+});
+datepicker("input[name='dateTo']", {
+  formatter: (input, date, instance) => {
+    const value = date.toLocaleDateString();
+    input.value = value;
+  },
+});

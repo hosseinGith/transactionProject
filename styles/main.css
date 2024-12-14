@@ -622,10 +622,6 @@ video {
   overflow: hidden;
 }
 
-.text-wrap {
-  text-wrap: wrap;
-}
-
 .text-nowrap {
   text-wrap: nowrap;
 }
@@ -706,20 +702,12 @@ video {
   padding-top: 2rem;
 }
 
-.text-\[12px\] {
-  font-size: 12px;
-}
-
-.text-\[16px\] {
-  font-size: 16px;
-}
-
 .text-\[14px\] {
   font-size: 14px;
 }
 
-.text-\[13px\] {
-  font-size: 13px;
+.text-\[16px\] {
+  font-size: 16px;
 }
 
 .text-\[black\] {
@@ -741,7 +729,11 @@ video {
 @font-face {
   font-family: iransans;
 
-  src: url("../assets/fonts/IRANSANS-LIGHT EDITORTEAM.TTF") format("truetype");
+  src: url("../assets/fonts/Farsi-Digits-Without-Latin/Tanha-FD-WOL.ttf") format("ttf"),
+      url("../assets/fonts/Farsi-Digits-Without-Latin/Tanha-FD-WOL.woff") format("woff"),
+      url("../assets/fonts/Farsi-Digits-Without-Latin/Tanha-FD-WOL.woff2") format("woff2"),
+      url("../assets/fonts/Farsi-Digits-Without-Latin/Tanha-FD-WOL.eot") format("eot"),
+    ;
 }
 
 body {
@@ -829,9 +821,5 @@ input {
 
   .sm\:p-4 {
     padding: 1rem;
-  }
-
-  .sm\:text-\[16px\] {
-    font-size: 16px;
   }
 }

@@ -5,16 +5,22 @@
     <meta charset="UTF-8" />
     <link rel="preload" href="styles/main.css" as="style" />
     <link rel="stylesheet" href="styles/main.css" />
+    <link
+    href="styles/datepicker.main.css"
+    rel="stylesheet"
+    />
+    <script src="scripts/datepicker.main.js"></script>
     <script src="scripts/main.js" defer></script>
+
     <title>Document</title>
   </head>
   <body class="bg-bodyColor text-fontColor">
-    <form class="max-w-[1000px] mx-auto sm:p-4 p-2 text-[12px]">
+    <form class="max-w-[1000px] mx-auto sm:p-4 p-2 text-[14px]">
       <div
         class="w-full border border-borderColor shadow-sm rounded-lg bg-[#fff]"
       >
         <div class="px-4 pt-4 pb-2 border-b border-borderColor">
-          <h1 class="sm:text-[16px] text-[13px]">فیلتر ها</h1>
+          <h1 class="text-[16px]">فیلتر ها</h1>
         </div>
         <div class="flex sm:flex-row flex-col text-nowrap items-end gap-4 p-4">
           <div class="w-full flex flex-col">
@@ -22,7 +28,7 @@
             <div
               class="rounded border border-borderColor w-full flex items-center"
             >
-              <div>
+              <label for="dateFrom">
                 <svg
                   width="15"
                   xmlns="http://www.w3.org/2000/svg"
@@ -38,14 +44,15 @@
                     d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
                   />
                 </svg>
-              </div>
+              </label>
               <input
                 id="dateFrom"
                 dir="ltr"
                 class="w-full px-4 py-2"
                 type="text"
+                autocomplete="off"
                 name="dateFrom"
-                placeholder="yyyy/mm/dd"
+                placeholder="mm/dd/yyyy"
               />
             </div>
           </div>
@@ -54,7 +61,7 @@
             <div
               class="rounded border border-borderColor w-full flex items-center"
             >
-              <div>
+              <label for="dateTo">
                 <svg
                   width="15"
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,19 +77,22 @@
                     d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
                   />
                 </svg>
-              </div>
+              </label>
               <input
                 id="dateTo"
                 dir="ltr"
                 class="w-full px-4 py-2"
                 type="text"
+                autocomplete="off"
                 name="dateTo"
-                placeholder="yyyy/mm/dd"
+                placeholder="mm/dd/yyyy"
               />
             </div>
           </div>
           <div>
-            <button id="filterTransaction" type="button" class="button">جست و جو</button>
+            <button id="filterTransaction" type="button" class="button">
+              جست و جو
+            </button>
           </div>
         </div>
       </div>
@@ -97,7 +107,7 @@
         </div>
         <div class="bg-[#fff] rounded-lg border border-borderColor">
           <div class="py-2 px-4 flex justify-between items-center">
-            <h1 class="sm:text-[16px] text-[13px]">لیست پرداختی ها</h1>
+            <h1 class="text-[16px]">لیست پرداختی ها</h1>
             <div
               id="searchForm"
               class="flex border-borderColor border rounded overflow-hidden"
@@ -109,8 +119,8 @@
                 placeholder="جستجو"
                 id="searchValue"
               />
-              <button
-                type="button"
+              <label
+                for="searchValue"
                 class="bg-secendColor px-2 flex items-center"
               >
                 <svg
@@ -127,7 +137,7 @@
                     d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                   />
                 </svg>
-              </button>
+              </label>
             </div>
           </div>
           <div class="overflow-auto">
@@ -166,7 +176,7 @@
                   </td>
                   <td>
                     <p class="flex flex-col">
-                      <span class="dateTransaction">2024-10-7</span>
+                      <span class="dateTransaction">10/7/2024</span>
                       <span>03:29:02</span>
                     </p>
                   </td>
@@ -294,7 +304,7 @@
                   </td>
                   <td>
                     <p class="flex flex-col">
-                      <span class="dateTransaction">2024-10-7</span>
+                      <span class="dateTransaction">10/7/2024</span>
                       <span>03:29:02</span>
                     </p>
                   </td>
