@@ -160,8 +160,8 @@ function searchInTransaction(search) {
 }
 function filter() {
   let trs = document.querySelectorAll("#transactionCont tr");
-  let dateFrom = document.querySelector("#dateFrom").value;
-  let dateTo = document.querySelector("#dateTo").value;
+  let dateFrom = document.querySelector("#dateFrom").value.trim();
+  let dateTo = document.querySelector("#dateTo").value.trim();
   if (!dateFrom || !dateTo) {
     trs.forEach((item) => {
       item.classList.remove("hidden");
@@ -170,9 +170,9 @@ function filter() {
   }
   trs.forEach((item) => {
     if (
-      new Date(item.querySelector(".dateTransaction").textContent).getTime() >=
+      new Date(item.querySelector(".dateTransaction").textContent.trim()).getTime() >=
         new Date(dateFrom).getTime() &&
-      new Date(item.querySelector(".dateTransaction").textContent).getTime() <=
+      new Date(item.querySelector(".dateTransaction").textContent.trim()).getTime() <=
         new Date(dateTo).getTime()
     )
       item.classList.remove("hidden");
